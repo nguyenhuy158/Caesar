@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceasar</title>
+
+    <link rel="shortcut icon"
+        href="https://img.freepik.com/free-vector/web-developer-hands-using-tablet-pc-creating-program-code-development-software-programming-concept_48369-33861.jpg?w=826" />
+
+
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- font awesome -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+    <!-- toast -->
+    <div aria-live="polite" aria-atomic="true" style="position: relative; z-index: 100;">
+        <div id="toast-success" class="toast bg-success text-light" style="position: absolute; top: 8px; right: 8px;">
+            <div class="toast-header">
+                <!-- <img src="..." class="rounded mr-2" alt="..."> -->
+                <strong class="mr-auto">Success</strong>
+                <!-- <small>11 mins ago</small> -->
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                Success
+            </div>
+        </div>
+
+        <div id="toast-faild" class="toast bg-danger text-light" style="position: absolute; top: 8px; right: 8px;">
+            <div class="toast-header">
+                <!-- <img src="..." class="rounded mr-2" alt="..."> -->
+                <strong class="mr-auto">Faild</strong>
+                <!-- <small>11 mins ago</small> -->
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body ">
+                Điền chuỗi vào nè
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid bg-secondary py-5">
+        <div class="container ">
+            <div class="row">
+
+                <div class="col">
+                    <div class="input-group my-3">
+
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">
+                                Mã Caesar : Input
+                            </span>
+                        </div>
+
+                        <input autocomplete="off" id="input-text" type="text" class="form-control"
+                            placeholder="Chuỗi đầu vào" aria-label="Chuỗi đầu vào" aria-describedby="basic-addon1"
+                            style="text-transform: uppercase;">
+
+                        <div class="input-group-append">
+                            <button id="render" class="btn btn-primary" type="button" id="button-addon2">
+                                <ion-icon name="finger-print-outline"></ion-icon>
+
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="input-group my-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">
+                                Giá trị k
+                            </span>
+                        </div>
+                        <input autocomplete="off" id="k" type="number" class="form-control" value="0" min="0" max="25"
+                            aria-describedby="basic-addon1">
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- table -->
+            <div id="" class=" w-100">
+                <div class="col my-4"></div>
+            </div>
+
+            <div id="alpha" class="row">
+
+            </div>
+
+            <div id="arrow" class="row w-100 my-4">
+                <!-- <div class="col "></div> -->
+            </div>
+
+            <div id="render-alpha" class="row">
+
+            </div>
+
+
+            <!-- output -->
+            <div class="row">
+
+                <div class="col">
+                    <div class="input-group my-3">
+
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">
+                                Mã Caesar: Output
+                            </span>
+                        </div>
+
+                        <input autocomplete="off" disabled id="output-text" type="text" class="form-control"
+                            placeholder="Chuỗi output" aria-label="Chuỗi output" aria-describedby="basic-addon1"
+                            style="text-transform: uppercase;">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- boostrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            let btn = $('#render').click(function (event) {
+                let chuoi = $('#input-text').val();
+                console.log(chuoi);
+                console.log(k);
+
+                if (chuoi === '') {
+                    $('#toast-faild').toast({ delay: 1000 });
+                    $('#toast-faild').toast('show',);
+                } else {
+
+                    $('#toast-success').toast({ delay: 1000 });
+                    $('#toast-success').toast('show',);
+                }
+            });
+
+
+
+            $('#k').change(function () {
+                let k = parseInt($('#k').val());
+                let chuoi = $('#input-text').val().toUpperCase();
+
+                $('#alpha').empty()
+                $('#arrow').empty()
+                $('#render-alpha').empty()
+                let alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+
+                for (let i = 0; i < alpha.length; i++) {
+                    $('#alpha').append(`<button class="col mx-1 btn btn-light btn-sm" disabled>${alpha[i]}</button>`);
+                    $('#arrow').append(`
+                        <div class="col mx-1 btn btn-sm" disabled>
+                            <ion-icon name="arrow-down-outline"></ion-icon>
+                        </div>`);
+                }
+
+                for (let i = 0; i < alpha.length; i++) {
+                    $('#render-alpha').append(`<button class="col mx-1 btn btn-light btn-sm" disabled>${alpha[(i + k) % 26]}</button>`);
+                }
+
+                if (chuoi != '') {
+                    let output = '';
+                    for (let i = 0; i < chuoi.length; i++) {
+                        output += alpha[(alpha.indexOf(chuoi[i]) + k) % 26];
+                        // console.log(chuoi[i], alpha.indexOf(chuoi[i]));
+                    }
+                    $('#output-text').val(output);
+                    console.log(output);
+                } else {
+                    $('#output-text').val('');
+                }
+            });
+
+            $('#input-text').on({
+                keyup: function (e) {
+
+                    let k = parseInt($('#k').val());
+                    let chuoi = $('#input-text').val().toUpperCase();
+
+                    let alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+
+                    let output = '';
+                    for (let i = 0; i < chuoi.length; i++) {
+                        output += alpha[(alpha.indexOf(chuoi[i]) + k) % 26];
+                        // console.log(chuoi[i], alpha.indexOf(chuoi[i]));
+                    }
+                    $('#output-text').val(output);
+                    console.log(output);
+                }, change: function () {
+                    this.value = this.value.replace(/\s/gm, "");
+                }
+                , keypress: function (e) {
+                    let keyPass = [32, 39, 59, 58, 34, 44, 46, 60, 62, 45, 61, 91, 93, 47, 63, 49, 50, 51, 52, 53, 54, 55, 56, 57, 48];
+                    console.log(e.which);
+                    if (keyPass.includes(e.which)) {
+                        return false;
+                    }
+                }
+            }
+            );
+
+        });
+    </script>
+</body>
+
+</html>
