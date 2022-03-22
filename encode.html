@@ -189,19 +189,19 @@
                     $('#alpha').append(`<button class="col mx-1 btn btn-light btn-sm" disabled>${alpha[i]}</button>`);
                     $('#arrow').append(`
                         <div class="col mx-1 btn btn-sm" disabled>
-                            <ion-icon name="arrow-down-outline"></ion-icon>
+                            <ion-icon name="arrow-up-outline"></ion-icon>
                         </div>`);
                 }
 
                 for (let i = 0; i < alpha.length; i++) {
-                    $('#render-alpha').append(`<button class="col mx-1 btn btn-light btn-sm" disabled>${alpha[(- i + k) % 26]}</button>`);
+                    $('#render-alpha').append(`<button class="col mx-1 btn btn-light btn-sm" disabled>${alpha[(k + i) % 26]}</button>`);
                 }
 
                 if (chuoi != '') {
                     let output = '';
                     for (let i = 0; i < chuoi.length; i++) {
                         if (chuoi[i] !== ' ') {
-                            output += alpha[(- alpha.indexOf(chuoi[i]) + k) % 26];
+                            output += alpha[(alpha.indexOf(chuoi[i]) - k) % 26 < 0 ? 26 + (alpha.indexOf(chuoi[i]) - k) % 26 : (alpha.indexOf(chuoi[i]) - k) % 26];
                             // console.log(chuoi[i], alpha.indexOf(chuoi[i]));
                         } else {
                             output += ' ';
@@ -225,7 +225,7 @@
                     let output = '';
                     for (let i = 0; i < chuoi.length; i++) {
                         if (chuoi[i] !== ' ') {
-                            output += alpha[(- alpha.indexOf(chuoi[i]) + k) % 26];
+                            output += alpha[(alpha.indexOf(chuoi[i]) - k) % 26 < 0 ? 26 + (alpha.indexOf(chuoi[i]) - k) % 26 : (alpha.indexOf(chuoi[i]) - k) % 26];
                             // console.log(chuoi[i], alpha.indexOf(chuoi[i]));
                         } else {
                             output += ' ';
